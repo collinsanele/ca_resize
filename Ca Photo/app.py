@@ -15,7 +15,7 @@ def send_mail(r_address, file, file_data):
 	msg = EmailMessage()
 	
 	msg['Subject'] = 'Resized Image'
-	msg['From'] = 'pycollins2019@gmail.com'
+	msg['From'] = 'senders_email@gmail.com'
 	msg['To'] = r_address
 	msg.set_content("Resized Image Result")
 	#with io.BytesIO() as buffer:
@@ -26,7 +26,7 @@ def send_mail(r_address, file, file_data):
 	msg.add_attachment(content, maintype='image', subtype='jpeg', filename=file.filename)
 	
 	with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-		smtp.login("pycollins2019@gmail.com", "call4807797")
+		smtp.login("sender's_email@gmail.com", "password")
 		smtp.send_message(msg)
 	
 		
