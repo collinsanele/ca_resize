@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photo Resizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+      .container{
+        width:89%;
+        height:760px;
+        text-align:center;
+        margin:0 auto;
+      }
+      .card{
+        overflow:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar is-success">
+      <div class="navbar-brand">
+        <a class="navbar-item"><strong>Ca Photo Resizer</strong></a>
+      </div>
+    </nav>
+  <section class="section">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="message {{cls}}">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+      <h1 class="title">
+        Photo Resizer
+      </h1>
+      <p class="subtitle">
+        resize your pictures
+      </p>
+      <form class="has-text-centered" method="POST" enctype="multipart/form-data">
+        <div class="card">
+          <div class="card-content">
+            <div class="field">
+              <label class="label">Enter Email Address To Receive The Resized Photo</label>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input name="email" class="input" type="text" placeholder="Enter Email">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Select Size (Resolution)</label>
+            </div>
+            <div class="field">
+              <div class="select">
+                <select name="size">
+                  <option value="128x128">128x128</option>
+                  <option value="300x300">300x300</option>
+                  <option value="400x400">400x400</option>
+                  <option value="500x500">500x500</option>
+                  <option value="600x600">600x600</option>
+                  <option value="700x700">700x700</option>
+                  <option value="800x800">800x800</option>
+                  <option value="900x900">900x900</option>
+                  <option value="1200x1200">1200x1200</option>
+                  <option value="1500x1500">1500x1500</option>
+                  <option value="2000x2000">2000x2000</option>
+                  <option value="5000x5000">5000x5000</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Choose Image</label>
+            </div>
+            
+              <div class="control has-text-centered">
+                <input type="file" name="file">
+              </div>
+              <br>
+              <div class="control has-text-centered">
+                <input class="button is-info" type="submit" value="Upload">
+              </div>
+            </div>
+            
+          </div><!--End card-content-->
+        </div><!-- end card-->
+      </form>
+    </div><!--End of container-->
+  </section>
+  </body>
+</html>
